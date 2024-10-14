@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Cutoff Predictor</title>
+</head>
+<body>
+    <header>
+        <h1>Cutoff Prediction</h1>
+    </header>
+    <div class="container">
+        <form method="POST">
+            <label for="college">Select College</label>
+            <select name="college" id="college" required>
+                <option value="">Select One</option>
+                {% for college in colleges %}
+                <option value="{{ college }}">{{ college }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="branch">Select Branch</label>
+            <select name="branch" id="branch" required>
+                <option value="">Select One</option>
+                {% for branch in branches %}
+                <option value="{{ branch }}">{{ branch }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="category">Select Category</label>
+            <select name="category" id="category" required>
+                <option value="">Select One</option>
+                {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Predict Cutoff">
+        </form>
+
+        
+    </div>
+</body>
+</html>

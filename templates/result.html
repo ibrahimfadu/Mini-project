@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Prediction Result</title>
+</head>
+<body>
+    <header>
+        <h1>Cutoff Prediction of 2025</h1>
+    </header>
+    <div class="container">
+        <h2>College: {{ college }}</h2>
+        <h2>Branch: {{ branch }}</h2>
+        <h2>Category: {{ category }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Previous Year Cutoffs</th>
+                    <th>Increase and Decrease in Seats</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2019</td>
+                    <td>{{ past_cutoffs[0] | int}}</td>
+                    <td>{{ differences[0] | int}}</td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>{{ past_cutoffs[1] | int}}</td>
+                    <td>{{ differences[1] | int}}</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>{{ past_cutoffs[2] | int}}</td>
+                    <td>{{ differences[2] | int}}</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>{{ past_cutoffs[3] | int}}</td>
+                    <td>{{ differences[3] | int}}</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>{{ past_cutoffs[4] | int}}</td>
+                    <td>{{ differences[4] | int}}</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>{{ past_cutoffs[5] | int}}</td>
+                    <td>{{ differences[5] | int}}</td>
+                </tr>    
+            </tbody>
+        </table>
+
+        <div class="highlight">Predicted cutoff of 2025 is {{ predicted_cutoff }}</div>
+
+        <form action="/" method="get">
+            <button class="return-btn" type="submit">Return</button>
+        </form>
+    </div>
+</body>
+</html>
